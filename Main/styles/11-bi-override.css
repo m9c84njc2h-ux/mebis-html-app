@@ -1,0 +1,6 @@
+.controlpoint .label{
+    text-decoration:none;
+}
+.controlpoint .label.nomediainfo{
+    color:#666;
+}

@@ -1,0 +1,707 @@
+
+
+@charset "utf-8";
+
+/* CSS Document 
+Thema Name: Klett Module
+Thema URI: http://welsch.com
+Description: Klett Module Template
+Author: Vani Schäfer, Danny Ruch
+Author URI: http://welsch.com/
+Version: 1.2
+License: Copyright Welsch & Partner
+License URI: http://welsch.com
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, hr {
+
+cursor: default;
+/*-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;*/
+
+margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+/* 
+
+Allow selection on the given element.
+
+In Firefox, the selection event apparently is not propagated down the
+document tree if an element has -moz-user-select: none.  So in order
+for this class to take effect in Firefox, .selection-enabled has to be
+applied to each ancestor element as well.
+
+Therfore, the class works in conjunction with
+3-firefox-no-selection-fix.js which ascends in the document tree and
+applies the class to the ancestor elements.
+
+*/ 
+
+.selection-enabled {
+        -webkit-touch-callout: auto;
+        -webkit-user-select: auto;
+        -khtml-user-select: auto;
+        -moz-user-select: auto;
+        -ms-user-select: auto;
+        user-select: auto;
+}
+a { cursor: pointer; }
+
+
+
+body {font: 12px/16px Arial, Helvetica, sans-serif;	color: #000; background: #ffffff; padding: 1px 0 0 0;
+}
+
+.html5-video a {text-decoration:underline;}
+p.html5-video { width: 300px; }
+ul.html5-video {list-style-type: disc;}
+
+/*###################################### global styles ######################################*/
+
+ol, ul {list-style: none;}
+
+sup, sub {height: 0; line-height: 1; vertical-align: baseline; position: relative;}
+sup {bottom: 1ex;
+font-size:10px;}
+sub {top: .5ex;
+font-size:10px;}
+.hidden {display:none;}
+
+a:link {color: #336699;}
+
+.special-border {
+-moz-border-radius-topright: 2px; border-top-right-radius: 2px;
+-moz-border-radius-topleft: 15px; border-top-left-radius: 15px;}
+
+
+/*###################################### main construction ######################################*/
+/*
+-moz-border-radius: 8px 0 0 8px; 
+-webkit-border-radius: 8px 0 0 8px; 
+-khtml-border-radius: 8px 0 0 8px; 
+border-radius: 8px 0 0 8px; 
+*/
+
+#container {
+    display: block; 
+    width: 800px; 
+    margin: 0 auto;
+}
+
+#loadscreen {
+    position: absolute;
+    left:0px; top:0px;
+    width: 798px; height:524px;
+    border-style:solid;
+    border-width:1px;
+    display:none;
+}
+#loadscreen>div {
+    text-align:center;
+    position:absolute;
+    top: 50%;
+    left:50%;
+    width:100px;
+    height:100px;
+    margin-top:-50px;
+    margin-left:-50px;
+}
+#startup-activity-indicator, #startup-progress-bar {
+    display:none;
+}
+
+#startup-progress-bar {
+    width: 98px;
+    height: 8px;
+    border: 1px solid #005294;
+}
+#startup-progress-bar>div {
+    background-color: #005294;
+    height:8px;
+}
+
+#loadscreen.aspect-indicator #startup-activity-indicator, 
+#loadscreen.aspect-progress-bar #startup-progress-bar {
+    display:inline-block;
+}
+#header {background-repeat:no-repeat; position: relative; height: 38px; margin-bottom: 3px; 
+width: 800; overflow:hidden;}
+
+#contentContainer {
+    background: #fff;
+    width: 798px;
+}
+#moduleContainer{
+    position: relative;
+    height:526px;
+}
+
+#mainContent {height: 524px; width: 798px; position:relative; border-width: 1px;border-style: solid}
+
+
+#titleContainer {
+    width: 798px; height: 24px; overflow: hidden; border-width: 0 1px 0 1px; border-style:solid;
+}
+
+#title {display: block; height: 21px; width: 602px; float: left; padding: 4px 0 0 ; overflow:hidden}
+
+#title{color: #ffffff;}
+#title div {font-size: 14px; float:left}
+#title div h1 {font-size: 14px; float:left; padding-left:10px; padding-right:33px}
+#title div a {float: left; font-size: 12px;	padding-left: 7px; padding-right:7px; line-height:18px;	cursor: pointer;}
+
+
+#controls {float: left; height: 24px; width: 196px; overflow:hidden; background:url(../images/layout/titelcontainer-bg.png) no-repeat scroll}
+#controls ul {padding: 0 0 0; float: right;}
+
+
+#controls li {float:left; width:20px;}
+
+
+#print-icon, #check-answer, #sound-control, #textinfo, #beginning, #prev, #next, #end, #videoPlay, #videoPause, #videoRewind, #toggle-bildinfo, .control-element {
+width: 20px; height: 20px; margin-top: 2px; margin-right:2px; cursor: pointer; background-repeat: no-repeat;}
+
+#check-answer, .control-element.check-answer{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -20px;
+}
+#check-answer:hover, .control-element.check-answer:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -20px;
+}
+#check-answer.disabled, .control-element.check-answer.disabled,
+#check-answer.disabled:hover, .control-element.check-answer.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-check.png);}
+
+#check-answer.activeOn, .control-element.check-answer.activeOn,
+#check-answer.activeOn:hover, .control-element.check-answer.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -20px;
+}
+
+#check-answer.activeClosing, .control-element.check-answer.activeClosing,
+#check-answer.activeClosing:hover, .control-element.check-answer.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -20px;
+}
+#videoPause, .control-element.videoPause{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -100px;
+}
+#videoPause:hover, .control-element.videoPause:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -100px;
+}
+#videoPause.disabled, .control-element.videoPause.disabled,
+#videoPause.disabled:hover, .control-element.videoPause.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-pause.png);}
+
+#videoPause.activeOn, .control-element.videoPause.activeOn,
+#videoPause.activeOn:hover, .control-element.videoPause.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -100px;
+}
+
+#videoPause.activeClosing, .control-element.videoPause.activeClosing,
+#videoPause.activeClosing:hover, .control-element.videoPause.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -100px;
+}
+#sound-control, .control-element.sound-control{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -140px;
+}
+#sound-control:hover, .control-element.sound-control:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -140px;
+}
+#sound-control.disabled, .control-element.sound-control.disabled,
+#sound-control.disabled:hover, .control-element.sound-control.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-sound.png);}
+
+#sound-control.activeOn, .control-element.sound-control.activeOn,
+#sound-control.activeOn:hover, .control-element.sound-control.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -140px;
+}
+
+#sound-control.activeClosing, .control-element.sound-control.activeClosing,
+#sound-control.activeClosing:hover, .control-element.sound-control.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -140px;
+}
+#textinfo, .control-element.textinfo{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -160px;
+}
+#textinfo:hover, .control-element.textinfo:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -160px;
+}
+#textinfo.disabled, .control-element.textinfo.disabled,
+#textinfo.disabled:hover, .control-element.textinfo.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-text.png);}
+
+#textinfo.activeOn, .control-element.textinfo.activeOn,
+#textinfo.activeOn:hover, .control-element.textinfo.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -160px;
+}
+
+#textinfo.activeClosing, .control-element.textinfo.activeClosing,
+#textinfo.activeClosing:hover, .control-element.textinfo.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -160px;
+}
+#beginning, .control-element.beginning,
+#videoRewind, .control-element.videoRewind{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -200px;
+}
+#beginning:hover, .control-element.beginning:hover,
+#videoRewind:hover, .control-element.videoRewind:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -200px;
+}
+#beginning.disabled, .control-element.beginning.disabled,
+#videoRewind.disabled, .control-element.videoRewind.disabled,
+#beginning.disabled:hover, .control-element.beginning.disabled:hover,
+#videoRewind.disabled:hover, .control-element.videoRewind.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-toStart.png);}
+
+#beginning.activeOn, .control-element.beginning.activeOn,
+#videoRewind.activeOn, .control-element.videoRewind.activeOn,
+#beginning.activeOn:hover, .control-element.beginning.activeOn:hover,
+#videoRewind.activeOn:hover, .control-element.videoRewind.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -200px;
+}
+
+#beginning.activeClosing, .control-element.beginning.activeClosing,
+#videoRewind.activeClosing, .control-element.videoRewind.activeClosing,
+#beginning.activeClosing:hover, .control-element.beginning.activeClosing:hover,
+#videoRewind.activeClosing:hover, .control-element.videoRewind.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -200px;
+}
+#prev, .control-element.prev{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -0px;
+}
+#prev:hover, .control-element.prev:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -0px;
+}
+#prev.disabled, .control-element.prev.disabled,
+#prev.disabled:hover, .control-element.prev.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-backwards.png);}
+
+#prev.activeOn, .control-element.prev.activeOn,
+#prev.activeOn:hover, .control-element.prev.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -0px;
+}
+
+#prev.activeClosing, .control-element.prev.activeClosing,
+#prev.activeClosing:hover, .control-element.prev.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -0px;
+}
+#print-icon, .control-element.print-icon{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -120px;
+}
+#print-icon:hover, .control-element.print-icon:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -120px;
+}
+#print-icon.disabled, .control-element.print-icon.disabled,
+#print-icon.disabled:hover, .control-element.print-icon.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-print.png);}
+
+#print-icon.activeOn, .control-element.print-icon.activeOn,
+#print-icon.activeOn:hover, .control-element.print-icon.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -120px;
+}
+
+#print-icon.activeClosing, .control-element.print-icon.activeClosing,
+#print-icon.activeClosing:hover, .control-element.print-icon.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -120px;
+}
+#next, .control-element.next,
+#videoPlay, .control-element.videoPlay{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -60px;
+}
+#next:hover, .control-element.next:hover,
+#videoPlay:hover, .control-element.videoPlay:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -60px;
+}
+#next.disabled, .control-element.next.disabled,
+#videoPlay.disabled, .control-element.videoPlay.disabled,
+#next.disabled:hover, .control-element.next.disabled:hover,
+#videoPlay.disabled:hover, .control-element.videoPlay.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-forwards.png);}
+
+#next.activeOn, .control-element.next.activeOn,
+#videoPlay.activeOn, .control-element.videoPlay.activeOn,
+#next.activeOn:hover, .control-element.next.activeOn:hover,
+#videoPlay.activeOn:hover, .control-element.videoPlay.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -60px;
+}
+
+#next.activeClosing, .control-element.next.activeClosing,
+#videoPlay.activeClosing, .control-element.videoPlay.activeClosing,
+#next.activeClosing:hover, .control-element.next.activeClosing:hover,
+#videoPlay.activeClosing:hover, .control-element.videoPlay.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -60px;
+}
+#end, .control-element.end{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -180px;
+}
+#end:hover, .control-element.end:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -180px;
+}
+#end.disabled, .control-element.end.disabled,
+#end.disabled:hover, .control-element.end.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-toEnd.png);}
+
+#end.activeOn, .control-element.end.activeOn,
+#end.activeOn:hover, .control-element.end.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -180px;
+}
+
+#end.activeClosing, .control-element.end.activeClosing,
+#end.activeClosing:hover, .control-element.end.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -180px;
+}
+#toggle-bildinfo, .control-element.toggle-bildinfo{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -80px;
+}
+#toggle-bildinfo:hover, .control-element.toggle-bildinfo:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -80px;
+}
+#toggle-bildinfo.disabled, .control-element.toggle-bildinfo.disabled,
+#toggle-bildinfo.disabled:hover, .control-element.toggle-bildinfo.disabled:hover{
+    cursor:default;
+    background-image:url(../images/icons/grey-info.png);}
+
+#toggle-bildinfo.activeOn, .control-element.toggle-bildinfo.activeOn,
+#toggle-bildinfo.activeOn:hover, .control-element.toggle-bildinfo.activeOn:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: -20px -80px;
+}
+
+#toggle-bildinfo.activeClosing, .control-element.toggle-bildinfo.activeClosing,
+#toggle-bildinfo.activeClosing:hover, .control-element.toggle-bildinfo.activeClosing:hover{
+            background-image:url(../images/icons/square20x20.png);
+        width: 20px; height: 20px;
+        background-position: 0px -80px;
+}
+
+
+
+
+
+
+#footer {clear: both; height: 33px; width: 100%; margin-top: 3px;}
+#footer ul {float:right;padding:5px 5px 0px 5px; border-left:1px solid #fff;}
+#info {cursor:pointer;}
+
+
+
+/*###################################### info ######################################*/
+#mediainfo-container {
+    clear:both;
+    width: 778px; 
+    padding: 4px 10px 4px 10px; 
+    border-style: solid; 
+    overflow: auto; 
+    border-width: 1px 1px 1px 1px;
+    min-height: 100px;
+}
+#mediainfo-container .textColumn, #mediainfo-container .aufgabetextColumn {
+    column-count: 2; 
+    -moz-column-count: 2; 
+    -webkit-column-count: 2;
+}
+#mediainfo-container .aufgabetextColumn {width: 100%; padding: 4px 0 0 0; }
+
+#mediainfo-container { height: auto;}
+
+#mediainfo-container.impressum-active {
+    height: 100px; 
+}
+#mediainfo-container.impressum-active .textColumn, #mediainfo-container.impressum-active .aufgabetextColumn {
+    height: 98px;
+}
+
+/*###################################### impressum ######################################*/
+/* vs: 11-06-12 geändert width:652px , border-width:1px 1px 0 1px; */
+#infoContainer {
+    position: absolute; top: 39px; width: 798px; height:658px; 
+   // border-top-width: 1px; 
+    border-top-style: solid; 
+    display:block;
+    border-width: 1px; 
+    border-style:solid;
+    background: #fff; 
+    visibility: hidden; 
+    margin-top:3px;
+    z-index:20;
+}
+noscript #infoContainer {
+    visibility:visible;
+}
+.noscript-err {
+    color:#F00;
+    font-weight: bold;
+}
+#infoContainer h1 {display:block; height: 25px; width: 798px; }
+#infoContainer h1 .div1 {float: left; color: #000; height: 21px; width: 745px; padding: 4px 0 0 20px;}
+#infoContainer h1 .div2 {float: right; text-align: right; height: 23px; width: 33px; padding: 0;}
+#infoContainer h1 a {display: block; height: 23px; width: 23px;  text-align: right; margin-left:10px;
+background-image:url(../images/layout/btn-close.png); backround-repeat: no-repeat; cursor:pointer; }
+#infoContainer h1 a:hover {background:url(../images/layout/btn-close-hover.png);}
+
+#infoContent p,
+#infoContent h1,
+#infoContent h2,
+#infoContent h3,
+#infoContent h4 {
+font-size: 12px; margin: 2em 0 2em 20px;}
+
+#infoContent {padding-top: 8px; text-align: left; width: 100%;	height: 578px; overflow:auto;}
+#infoContent .infoContentBox {width: 780px;}
+#infoContent .infoContentBoxSmall {float: left; width: 370px;}
+#infoContent a {text-decoration:none;}
+#infoContent a:hover {}
+
+/* Info-Navigation */
+#infoNavigation {width:798px; height:27px; padding: 7px 0 0 0; border-bottom-width: 1px; border-style:solid;}
+
+#infoNavigation li {float: left; height: 22px; line-height: 22px; padding: 0 20px; margin-top: 4px; text-align: center; cursor:pointer;
+ border-width: 1px; border-style:solid;  }
+
+#infoNavigation a {display: block;}
+
+
+
+
+/* theme specific stylesheets */
+#mediainfo-container, #mainContent, #infoContainer, #titleContainer, #loadscreen  {
+    border-color: #005294;
+}
+#infoNavigation li{
+	border-color: #005294;
+}
+#infoContainer,#infoNavigation{
+	border-color:#005294;
+}
+
+#header {
+    background-image:url(../images/layout/header.png);
+}
+
+#footer {
+    background-color: #B1CA00; 
+}
+#title{
+	background-color: #005294;
+}
+
+
+/* light color */
+#infoNavigation li, #loadscreen {
+    background-color: #ffffff; 
+    color: #000000;
+}
+#infoContainer h1, #infoNavigation li.selected{
+	background-color: #e5edf4;
+	color: #000000;
+}
+#controls {
+    background-color: #e5edf4; 
+}
+
+.template-error {
+font-size:13px; 
+color:#000;
+background-color:#F99;
+width:150px;
+cursor:default;
+padding:5px;
+}
+
+.text-control-links a {color: #8fb2d0; }
+.text-control-links + .text-control-links a {border-left: 1px solid #ffffff;}
+.text-control-links.visible a, .text-control-links a:hover, .text-control-links a.active {color: #ffffff;}
+
+#title .text-control-links a {
+    cursor: pointer; 
+}
+
+
+#title .text-control-links.selected a {
+   cursor:  url(Main/images/cursors/open.cur), url(../images/cursors/open.png) 9 9, n-resize;
+}
+
+#title .text-control-links.selected.visible a {
+    cursor:  url(Main/images/cursors/close.cur), url(../images/cursors/close.png) 9 9, s-resize;
+}
+
+.zoom-in {
+    cursor:url(../images/cursors/einzoomen.png), url(Main/images/cursors/einzoomen.cur), auto;
+}
+.zoom-out {            
+    cursor: url(../images/cursors/auszoomen.png), url(Main/images/cursors/auszoomen.cur), auto;
+}
+
+/* Colored tables using list elements or tables */
+ul.colored-table li.even, table.colored-table tr.even td, table.colored-table th {
+    background-color:#e5edf4;
+}    
+ul.colored-table li.odd, table.colored-table tr.odd td {
+    background-color:#fff;
+}
+
+ul.colored-table li.selected {
+    background-color:#005294;
+}
+
+ul.colored-table li {
+    margin:0px;
+    list-style-type:none;
+    padding-left:3px;
+}
+
+ul.colored-table, table.colored-table {
+    border:#005294 2px solid;
+    padding:0px;
+}
+
+table.colored-table {
+    border-collapse: collapse;
+}
+table.colored-table td  {
+    border:#005294 1px solid;
+}
+
+/* Multi-lined form element labels.  In order for this to work, the
+input element must immediately precede the label.*/
+input.has-multiline-label + label {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px;
+    line-height: 18px;
+}
+
+input.has-multiline-label {
+    display:inline;
+    height:18px;
+    margin-top: 0px;
+    padding: 0px;
+}
+.image-list-marker {
+    display: inline;
+    vertical-align: middle;
+    margin-left:5px; /*vs:23.10.12*/
+}
+
+.image-list-marker + p{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.reaction-product,.reaction-educt,.reaction-product-educt-delimiter,.product-delimiter{
+    text-align:center
+    }
+
+.formula {
+    font-style: italic;
+ }
+
+.paper-grid {
+    background-image: url(../images/paper-grid.png);
+}
+
+/* HACK: this should be defined with another css class instead of using !important */
+.ui-draggable {
+    cursor: url(Main/images/cursors/hand.cur), url(../images/cursors/hand.png) 9 9,pointer !important;
+}
+
+.ui-draggable.ui-draggable-dragging {
+    cursor:  url(Main/images/cursors/hand-grab.cur), url(../images/cursors/hand-grab.png) 9 9, pointer !important;
+}
+
+.ui-draggable *{cursor:inherit}

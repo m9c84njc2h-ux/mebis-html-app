@@ -1,0 +1,17 @@
+#tab-container {position:relative; height:22px; width:800px;}
+.ov-chapter {text-align: center; cursor:pointer;
+background-color:#e5edf4; border-width:1px 1px 0 1px; border-style:solid; border-color: #005294; color: #000000; height: 21px; line-height:21px;}
+.ov-chapter:hover, .chapter-active {background-color:  #005294; color: #fff !important;}
+
+
+.slide {
+    position:absolute;
+    left:0px;
+    top:0px;
+    text-align:center;
+    width:100%;
+    display:none;
+}
+
+#slidenumber {width:40px !important; line-height: 24px; height: 24px; margin-right: 6px; text-align:center;}
+#slidenumber.busy {color:#b3b3b3}

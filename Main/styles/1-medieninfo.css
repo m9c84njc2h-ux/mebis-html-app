@@ -1,0 +1,9 @@
+#mediainfo-container {
+    height: 100px; 
+}
+#mediainfo-container .textColumn, #mediainfo-container .aufgabetextColumn {
+    height: auto;
+    overflow:auto;
+}
+
+
